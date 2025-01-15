@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Neovim自定义snippets | rminit's blog</title><meta name="author" content="rminit"><meta name="copyright" content="rminit"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="lazyvim自带的代码补全和代码段已经很强大了，但是在一些场景中，尤其是我在些markdown时，经常需要自定义代码片段，旨在提高书写效率下面是在lazyvim自定义代码段的步骤： 安装Luasnip插件打开LazyExtras安装luasnip插件 创建代码片段文件12mkdir -p ~/.config/nvim/lua/snippetstouch ~/.config/nvim/lua/sn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neovim自定义snippets">
+<meta property="og:url" content="https://rminit.github.io/posts/3aeef468.html">
+<meta property="og:site_name" content="rminit's blog">
+<meta property="og:description" content="lazyvim自带的代码补全和代码段已经很强大了，但是在一些场景中，尤其是我在些markdown时，经常需要自定义代码片段，旨在提高书写效率下面是在lazyvim自定义代码段的步骤： 安装Luasnip插件打开LazyExtras安装luasnip插件 创建代码片段文件12mkdir -p ~/.config/nvim/lua/snippetstouch ~/.config/nvim/lua/sn">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.loliapi.com/acg/pc/?7476">
+<meta property="article:published_time" content="2024-10-18T20:50:03.000Z">
+<meta property="article:modified_time" content="2025-01-15T16:01:59.783Z">
+<meta property="article:author" content="rminit">
+<meta property="article:tag" content="neovim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.loliapi.com/acg/pc/?7476"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://rminit.github.io/posts/3aeef468.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Neovim自定义snippets',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/top_img.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">rminit's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Neovim自定义snippets</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Neovim自定义snippets</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-18T20:50:03.000Z" title="发表于 2024-10-19 04:50:03">2024-10-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-15T16:01:59.783Z" title="更新于 2025-01-16 00:01:59">2025-01-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%90%8E%E7%AB%AF/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url(/img/top_img.jpg);"></div><article class="container post-content" id="article-container"><p>lazyvim自带的代码补全和代码段已经很强大了，但是在一些场景中，<br>尤其是我在些markdown时，经常需要自定义代码片段，旨在提高书写效率<br>下面是在lazyvim自定义代码段的步骤：</p>
+<h2 id="安装Luasnip插件"><a href="#安装Luasnip插件" class="headerlink" title="安装Luasnip插件"></a>安装Luasnip插件</h2><p>打开LazyExtras安装luasnip插件<br><img src="/img/LazyExtras.jpg" alt="LazyExtras"><br><img src="/img/installSnip.jpg" alt="installSnip"></p>
+<h2 id="创建代码片段文件"><a href="#创建代码片段文件" class="headerlink" title="创建代码片段文件"></a>创建代码片段文件</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.config/nvim/lua/snippets</span><br><span class="line"><span class="built_in">touch</span> ~/.config/nvim/lua/snippets/my_snippets.lua</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="自定义代码片段"><a href="#自定义代码片段" class="headerlink" title="自定义代码片段"></a>自定义代码片段</h2><p>代码片段用lua编写，样例如下：</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> ls = <span class="built_in">require</span>(<span class="string">"luasnip"</span>)</span><br><span class="line"><span class="keyword">local</span> s = ls.snippet</span><br><span class="line"><span class="keyword">local</span> i = ls.insert_node</span><br><span class="line"><span class="keyword">local</span> t = ls.text_node</span><br><span class="line"><span class="keyword">local</span> c = ls.choice_node</span><br><span class="line"><span class="keyword">local</span> f = ls.function_node</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 定义自定义代码片段</span></span><br><span class="line">ls.add_snippets(<span class="string">"lua"</span>, {</span><br><span class="line">  <span class="comment">-- 函数模板</span></span><br><span class="line">  s(<span class="string">"func"</span>, {</span><br><span class="line">    t(<span class="string">"function "</span>), i(<span class="number">1</span>, <span class="string">"name"</span>), t(<span class="string">"("</span>), i(<span class="number">2</span>, <span class="string">"args"</span>), t(<span class="string">")"</span>), t({<span class="string">""</span>, <span class="string">"  "</span>}), i(<span class="number">0</span>),</span><br><span class="line">  }),</span><br><span class="line">  </span><br><span class="line">  <span class="comment">-- print 语句</span></span><br><span class="line">  s(<span class="string">"pr"</span>, {</span><br><span class="line">    t(<span class="string">"print("</span>), i(<span class="number">1</span>), t(<span class="string">")"</span>),</span><br><span class="line">  }),</span><br><span class="line">  </span><br><span class="line">  <span class="comment">-- 条件语句</span></span><br><span class="line">  s(<span class="string">"if"</span>, {</span><br><span class="line">    t(<span class="string">"if "</span>), i(<span class="number">1</span>, <span class="string">"condition"</span>), t(<span class="string">" then"</span>), t({<span class="string">""</span>, <span class="string">"  "</span>}), i(<span class="number">0</span>), t({<span class="string">""</span>, <span class="string">"end"</span>}),</span><br><span class="line">  }),</span><br><span class="line">  </span><br><span class="line">  <span class="comment">-- for 循环</span></span><br><span class="line">  s(<span class="string">"for"</span>, {</span><br><span class="line">    t(<span class="string">"for "</span>), i(<span class="number">1</span>, <span class="string">"i"</span>), t(<span class="string">" = 1, "</span>), i(<span class="number">2</span>, <span class="string">"n"</span>), t(<span class="string">" do"</span>), t({<span class="string">""</span>, <span class="string">"  "</span>}), i(<span class="number">0</span>), t({<span class="string">""</span>, <span class="string">"end"</span>}),</span><br><span class="line">  }),</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="加载代码片段"><a href="#加载代码片段" class="headerlink" title="加载代码片段"></a>加载代码片段</h2><p>为了使这些代码片段在 Neovim 启动时生效，你需要在 <code>init.lua</code> 或其他配置文件中加载你刚才创建的代码片段文件。</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 加载自定义代码片段</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">"luasnip.loaders.from_lua"</span>).<span class="built_in">load</span>({ paths = <span class="string">"~/.config/nvim/lua/snippets"</span> })</span><br></pre></td></tr></tbody></table></figure>
+
+<p>现在，你可以在 Neovim 中使用自定义代码片段了。只需要在插入模式下输入触发词并按 <code>Tab</code> 键，LuaSnip 会展开对应的代码片段。</p>
+<ul>
+<li>输入 <code>func</code> 然后按 <code>Tab</code>，会展开为 <code>function name(args) end</code>，并将光标定位在函数名位置。</li>
+<li>输入 <code>pr</code> 然后按 <code>Tab</code>，会展开为 <code>print()</code>，并将光标定位在括号内。</li>
+</ul>
+<h2 id="完善代码片段"><a href="#完善代码片段" class="headerlink" title="完善代码片段"></a>完善代码片段</h2><p>你可以根据自己的需求继续添加和完善代码片段。例如，你可以添加更多的编程语言支持，或者更复杂的代码片段（如带参数的函数调用、类定义等）。<br>为不同语言添加代码片段</p>
+<p>你还可以为不同的编程语言定义专用的代码片段。例如，为 Python 和 JavaScript 分别定义片段：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- Python 代码片段</span><br><span class="line">ls.add_snippets(<span class="string">"python"</span>, {</span><br><span class="line">  s(<span class="string">"def"</span>, {</span><br><span class="line">    t(<span class="string">"def "</span>), i(<span class="number">1</span>, <span class="string">"function_name"</span>), t(<span class="string">"("</span>), i(<span class="number">2</span>, <span class="string">"args"</span>), t(<span class="string">"):"</span>), t({<span class="string">""</span>, <span class="string">"  "</span>}), i(<span class="number">0</span>),</span><br><span class="line">  }),</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">-- JavaScript 代码片段</span><br><span class="line">ls.add_snippets(<span class="string">"javascript"</span>, {</span><br><span class="line">  s(<span class="string">"log"</span>, {</span><br><span class="line">    t(<span class="string">"console.log("</span>), i(<span class="number">1</span>), t(<span class="string">")"</span>),</span><br><span class="line">  }),</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在 LazyVim 中自定义代码片段非常简单，主要是通过 LuaSnip 插件实现。你只需要创建代码片段文件、定义你的代码片段，并确保 LuaSnip 加载这些片段文件。通过这种方式，你可以提高编程效率，减少重复的代码输入。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://rminit.github.io">rminit</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://rminit.github.io/posts/3aeef468.html">https://rminit.github.io/posts/3aeef468.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://rminit.github.io" target="_blank">rminit's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/neovim/">neovim</a></div><div class="post-share"><div class="social-share" data-image="https://www.loliapi.com/acg/pc/?7476" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/7eaec7aa.html" title="Python.d5"><img class="cover" src="https://www.loliapi.com/acg/pc/?2294" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Python.d5</div></div><div class="info-2"><div class="info-item-1">数据容器存储多个元素的Python数据类型元素可以是任意类型的数据，如字符串，数字，布尔类型等。数据容器根据特点的不同，如：  是否支持重复元素 是否可以修改 是否有序  分为5类，分别是  list tuple str set dict  列表 可容纳多个元素 可容纳不同类型的元素 有序存储 可重复元素 可修改元素  字面量1[element1, element2, element3, ...]  list可以嵌套   1[[1, 2, 3], [4, 5, 6]]  list下标索引list下标顺序从0开始，即0 ~ n，list[0]对应list最开始的元素。 list下标逆序从-1开始，即-n ~ -1, list[-1]对应list最后一位元素。 123my_list = [1, 2, 3]element_start = my_list[0]element_end = my_list[-1]  嵌套列表的下标 12llist = [[1, 2, 3], [4, 5, 6]]element_left =...</div></div></div></a><a class="pagination-related" href="/posts/9a9f73c.html" title="Python.d4"><img class="cover" src="https://www.loliapi.com/acg/pc/?5955" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Python.d4</div></div><div class="info-2"><div class="info-item-1">什么是函数，函数就是组织好，实现特定功能的代码段。如len(),int(),print()等 定义函数例子如下: 12345def my_len(data):  count = 0  for i in data:    count += 1  print(f"字符串{data}长度是{count}")  使用函数的优点  将功能封装在函数内，可重复利用 提高代码复用性，减少重复代码，提高开发效率  函数基础定义语法123def 函数名(传入参数):  函数体  return 返回值  不需要传入参数，只需要括号即可   返回值函数在执行完成后，返回给调用者的结果在return函数执行结束 没有使用return时，返回None Node是Python特殊字面量，其类型是&lt;class...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/251c7100.html" title="开始使用neovim"><img class="cover" src="https://www.loliapi.com/acg/pc/?1842" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-15</div><div class="info-item-2">开始使用neovim</div></div><div class="info-2"><div class="info-item-1">开始使用neovim通过B站up主”TheCW”接触到”最强”代码编辑器：vim之后，我就对vim着迷了，但是在archlinux下，vim不能使用系统剪贴板，令我十分的苦恼。vim作为vi的复刻，neovim作为复刻的复刻，有其一些独特的特征作为Vim的改进版, 它使用Lua 作为配置文件,有着很现代化的特性, 解决了 Vim 的很多遗留问题… archlinux安装neovim1sudo pacman -S neovim  基本操作vim（nvim）四种操作模式  normal  默认模式 commend 命令模式 insert  输入模式 visible 可视模式  插件插件管理器: Lazy.vimLazyVim 是一个基于💤 lazy.nvim的Neovim配置方案，让定制和扩展变得简单直观。 您不必再在“从零配置”和“使用预制发行版”之间做选择，LazyVim 提供了一个两全其美的方式——既可以享受默认配置带来的便利，又能根据个人需求来灵活调整各项设置✨ 特性  🔥 将你的 Neovim 打造为一个功能完备的 IDE 💤 使用 lazy.nvim...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">rminit</div><div class="author-info-description">just for fun!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/rminit"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/rminit" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1606638705@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站，这里记录我的日常和学习笔记，希望对您有所帮助...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Luasnip%E6%8F%92%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">安装Luasnip插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">创建代码片段文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-number">3.</span> <span class="toc-text">自定义代码片段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-number">4.</span> <span class="toc-text">加载代码片段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E5%96%84%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-number">5.</span> <span class="toc-text">完善代码片段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/63af09b.html" title="Hexo的备份和恢复"><img src="https://www.loliapi.com/acg/pc/?9954" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo的备份和恢复"></a><div class="content"><a class="title" href="/posts/63af09b.html" title="Hexo的备份和恢复">Hexo的备份和恢复</a><time datetime="2024-12-27T17:26:34.000Z" title="发表于 2024-12-28 01:26:34">2024-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能"><img src="https://www.loliapi.com/acg/pc/?1553" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo添加本地搜索功能"></a><div class="content"><a class="title" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能">Hexo添加本地搜索功能</a><time datetime="2024-12-25T06:19:24.000Z" title="发表于 2024-12-25 14:19:24">2024-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a1a73a0d.html" title="Python.d14"><img src="https://www.loliapi.com/acg/pc/?8514" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d14"></a><div class="content"><a class="title" href="/posts/a1a73a0d.html" title="Python.d14">Python.d14</a><time datetime="2024-12-22T13:16:23.000Z" title="发表于 2024-12-22 21:16:23">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e10d4c29.html" title="Blender.d1"><img src="https://www.loliapi.com/acg/pc/?8525" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender.d1"></a><div class="content"><a class="title" href="/posts/e10d4c29.html" title="Blender.d1">Blender.d1</a><time datetime="2024-12-16T09:39:56.000Z" title="发表于 2024-12-16 17:39:56">2024-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3fc3afae.html" title="Python.d13"><img src="https://www.loliapi.com/acg/pc/?9961" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d13"></a><div class="content"><a class="title" href="/posts/3fc3afae.html" title="Python.d13">Python.d13</a><time datetime="2024-12-12T05:11:33.000Z" title="发表于 2024-12-12 13:11:33">2024-12-12</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">©2024 - 2025 By rminit</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

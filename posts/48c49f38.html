@@ -1,0 +1,316 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Python.d12 | rminit's blog</title><meta name="author" content="rminit"><meta name="copyright" content="rminit"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="json数据格式json是一种轻量级的数据交互格式，可以按照json指定的格式去组织和封装数据json本质是带有特定格式的字符串功能：在各个编程语言中流通的数据格式，负责不同编程语言的数据传递和交互。类似于：  国际通用语言-英语 普通话  示例：Python格式数据–>json数据格式–>c语言数据可用的数据格式c语言格式数据–>json数据格式–>Python可用的数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python.d12">
+<meta property="og:url" content="https://rminit.github.io/posts/48c49f38.html">
+<meta property="og:site_name" content="rminit's blog">
+<meta property="og:description" content="json数据格式json是一种轻量级的数据交互格式，可以按照json指定的格式去组织和封装数据json本质是带有特定格式的字符串功能：在各个编程语言中流通的数据格式，负责不同编程语言的数据传递和交互。类似于：  国际通用语言-英语 普通话  示例：Python格式数据–>json数据格式–>c语言数据可用的数据格式c语言格式数据–>json数据格式–>Python可用的数据">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.loliapi.com/acg/pc/?3928">
+<meta property="article:published_time" content="2024-12-06T06:09:14.000Z">
+<meta property="article:modified_time" content="2025-01-15T16:01:59.783Z">
+<meta property="article:author" content="rminit">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.loliapi.com/acg/pc/?3928"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://rminit.github.io/posts/48c49f38.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python.d12',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/top_img.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">rminit's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Python.d12</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Python.d12</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-06T06:09:14.000Z" title="发表于 2024-12-06 14:09:14">2024-12-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-15T16:01:59.783Z" title="更新于 2025-01-16 00:01:59">2025-01-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%AD%E8%A8%80/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url(/img/top_img.jpg);"></div><article class="container post-content" id="article-container"><h2 id="json数据格式"><a href="#json数据格式" class="headerlink" title="json数据格式"></a>json数据格式</h2><p>json是一种轻量级的数据交互格式，可以按照json指定的格式去组织和封装数据<br>json本质是带有特定格式的字符串<br>功能：在各个编程语言中流通的数据格式，负责不同编程语言的数据传递和交互。类似于：</p>
+<ul>
+<li>国际通用语言-<em>英语</em></li>
+<li>普通话</li>
+</ul>
+<p>示例：<br>Python格式数据–&gt;json数据格式–&gt;c语言数据可用的数据格式<br>c语言格式数据–&gt;json数据格式–&gt;Python可用的数据格式</p>
+<h3 id="json格式数据转化"><a href="#json格式数据转化" class="headerlink" title="json格式数据转化"></a>json格式数据转化</h3><p>json数据格式示例：</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span><span class="attr">"name"</span><span class="punctuation">:</span><span class="string">"admin"</span><span class="punctuation">,</span><span class="attr">"age"</span><span class="punctuation">:</span><span class="number">18</span><span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">[</span><span class="punctuation">{</span><span class="attr">"name"</span><span class="punctuation">:</span><span class="string">"admin"</span><span class="punctuation">,</span><span class="attr">"age"</span><span class="punctuation">:</span><span class="number">18</span><span class="punctuation">}</span><span class="punctuation">,</span><span class="punctuation">{</span><span class="attr">"name"</span><span class="punctuation">:</span><span class="string">"root"</span><span class="punctuation">,</span><span class="attr">"age"</span><span class="punctuation">:</span><span class="number">16</span><span class="punctuation">}</span><span class="punctuation">]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="python数据和json数据相互转化"><a href="#python数据和json数据相互转化" class="headerlink" title="python数据和json数据相互转化"></a>python数据和json数据相互转化</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入json模块</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment"># 准备符合格式json格式要求的Python数据</span></span><br><span class="line">data = [{<span class="string">"name"</span>:<span class="string">"rminit"</span>,<span class="string">"age"</span>:<span class="number">16</span>},{<span class="string">"name"</span>:<span class="string">"rikka"</span>,<span class="string">"age"</span>:<span class="number">16</span>}]</span><br><span class="line"><span class="comment"># 通过json.dumps(data)方法把Python数据转化为json数据</span></span><br><span class="line">data = json.dumps(data)</span><br><span class="line"><span class="comment"># 通过json.loads(data)方法把json数据转化为python数据</span></span><br><span class="line">data = json.loads(data)</span><br></pre></td></tr></tbody></table></figure>
+
+<div class="note info modern"><p>如果有中文可以带上：<code>ensure_ascii = False</code>来确保中文正常转化</p>
+</div>
+
+<h2 id="pycharts模块"><a href="#pycharts模块" class="headerlink" title="pycharts模块"></a>pycharts模块</h2><p>概况：<br>Echarts是一个有百度开源的数据可视化，凭借良好的交互性，精巧的图表设计，得到众多的开发者认可。Python是门富有表达力的语言，很适合用作数据处理。当数据分析遇上数据可视化时， <a target="_blank" rel="noopener" href="https://pyecharts.org/#/">pyecharts</a>便诞生了。</p>
+<div class="note info modern"><p>可以在官网画廊里预览图表效果</p>
+</div>
+
+<h3 id="安装pyecharts模块"><a href="#安装pyecharts模块" class="headerlink" title="安装pyecharts模块"></a>安装pyecharts模块</h3><p><code>pip install pyecharts</code></p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><h3 id="类的定义和使用"><a href="#类的定义和使用" class="headerlink" title="类的定义和使用"></a>类的定义和使用</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">类名称</span></span><br><span class="line">  类的属性</span><br><span class="line"></span><br><span class="line">  类的行为</span><br></pre></td></tr></tbody></table></figure>
+
+<p>创建类<br><code>对象 = 类名称()</code></p>
+<p>范例：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line">  name = <span class="literal">None</span></span><br><span class="line">  age = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">say_hello</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"hi, I'm <span class="subst">{self.name}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<div class="note info modern"><p><code>self</code>是必须填写的，在方法内部调用属性时，需要使用这个关键字</p>
+</div>
+
+<p>类只是一种程序内的设计蓝图，需要基于蓝图搭建实体，才能正常工作，这便是面向对象编程思想。</p>
+<h3 id="类的构造方法"><a href="#类的构造方法" class="headerlink" title="类的构造方法"></a>类的构造方法</h3><p><code>__init__()</code><br>可以实现：</p>
+<ul>
+<li>创建类对象的时候，自动执行</li>
+<li>创建类对象的时候，将传入参数自动传<code>__init__</code>方法使用。</li>
+</ul>
+<div class="note info modern"><p>使用<code>__init__</code>方法可以省略定义类的属性</p>
+</div>
+
+<div class="note warning modern"><p>构造方法也是内在方法，也需要使用<code>self</code>关键字</p>
+</div>
+
+<h3 id="类的内置方法"><a href="#类的内置方法" class="headerlink" title="类的内置方法"></a>类的内置方法</h3><p>内置方法(也叫魔术方法)</p>
+<ul>
+<li><code>__init__</code> 构造方法</li>
+<li><code>__str__</code> 字符串方法</li>
+<li><code>__lt__</code> 小于、大于符号比较</li>
+<li><code>__le__</code> 小于等于、大于等于符号比较</li>
+<li><code>__eq__</code> ==符号比较</li>
+</ul>
+<h4 id="str-方法"><a href="#str-方法" class="headerlink" title="__str__方法"></a>__str__方法</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">student</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name ,age</span>):</span><br><span class="line">    <span class="variable language_">self</span>.name = name </span><br><span class="line">    <span class="variable language_">self</span>.age = age</span><br></pre></td></tr></tbody></table></figure>
+
+<p>当类对象需要转化为字符串时，会输出内存地址<br>内存地址没有多大的作用，我们可以通过<code>__str__</code>方法，控制类转化为字符串的行为<br>示例：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, age</span>):</span><br><span class="line">    <span class="variable language_">self</span>.name = name </span><br><span class="line">    <span class="variable language_">self</span>.age = age</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f"Student类对象，name:<span class="subst">{self.name}</span>，age:<span class="subst">{self.age}</span>"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="lt-方法"><a href="#lt-方法" class="headerlink" title="__lt__方法"></a>__lt__方法</h4><p>直接对两个对象进行比较是不可以的，但是类中<code>__lt__</code>方法，即可同时实现<font color="red">小于和大于符号两种比较</font></p>
+<p>范例：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>:</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__lt__</span>(<span class="params">self, other</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span>.age &lt; other.age</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>方法名：<code>__lt__</code></li>
+<li>传入参数：other，另一个类对象</li>
+<li>返回值：<code>true</code>或<code>false</code></li>
+</ul>
+<div class="note info modern"><p><code>__le__</code>方法，<code>__eq__</code>方法和<code>__lt__</code>方法类似</p>
+</div>
+
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>面向对象的3大主要特性：</p>
+<ul>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ul>
+<p>封装表示的是，将现实事物的：</p>
+<ul>
+<li>属性</li>
+<li>行为</li>
+</ul>
+<p>封装到类中，描述为：</p>
+<ul>
+<li>成员变量</li>
+<li>成员方法</li>
+</ul>
+<h4 id="私有成员"><a href="#私有成员" class="headerlink" title="私有成员"></a>私有成员</h4><p>对应现实事物不公开的属性的行为<br>类中提供私有成员的的形式：</p>
+<ul>
+<li>私有成员变量</li>
+<li>私有成员方法</li>
+</ul>
+<p>定义私有成员的方法，只需要：</p>
+<ul>
+<li>私有成员变量：变量名以<code>__</code>开头（两个下划线）</li>
+<li>私有成员方法：方法名以<code>__</code>开头（两个下划线）</li>
+</ul>
+<p>私有方法无法直接被类对象使用<br>私有变量无法赋值，也无法获取值<br>私有成员无法使用，但是可以被其他成员使用<br>范例：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Phone</span>:</span><br><span class="line">  __current_voltage = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__keep_single_core</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"let cpu single core run"</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">call_by_5g</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="variable language_">self</span>.__current_voltage &gt;= <span class="number">1</span>:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"5g call start!"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="variable language_">self</span>.__keep_single_core()</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"batter"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>私有成员的意义：<br><font color="red">在类中提供仅供内部使用的属性和方法，而不对外开发（类对象无法使用）</font></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承表示：将从父类那里继承（复制）成员变量和成员方法（不含私有）<br>继承分为：</p>
+<ul>
+<li>单继承</li>
+<li>多继承</li>
+</ul>
+<p>单继承语法：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">类名</span>(<span class="title class_ inherited__">父类名</span>):</span><br><span class="line">  类内容体</span><br></pre></td></tr></tbody></table></figure>
+
+<p>多继承语法：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">类名</span>(父类<span class="number">1</span>, 父类<span class="number">2</span>, ...):</span><br><span class="line">  类内容体</span><br></pre></td></tr></tbody></table></figure>
+
+<div class="note info modern"><p>多继承结合父类时，不想添加内容体时，可以写入<code>pass</code>关键字</p>
+</div>
+
+<h4 id="复写"><a href="#复写" class="headerlink" title="复写"></a>复写</h4><p>子类继承父类成员属性和成员方法后，如果对其“不满意”，可以进行复写。<br>即：在子类中重新定义同名的属性或方法即可。</p>
+<h4 id="调用父类同名成员"><a href="#调用父类同名成员" class="headerlink" title="调用父类同名成员"></a>调用父类同名成员</h4><p>一旦复写父类成员，那么类对象调用成员的时候，就会调用复写后的新成员<br>如果需要使用被复写的父类的成员，需要特殊的调用方式：</p>
+<p>方式1:</p>
+<ul>
+<li>调用父类成员<br>使用成员变量：<code>父类名.成员变量</code><br>使用成员方法：<code>父类名.成员方法</code><br>方式2:</li>
+<li>使用<code>super()</code>调用父类成员<br>使用成员变量：<code>super().成员变量</code><br>使用成员方法：<code>super().成员方法()</code></li>
+</ul>
+<h3 id="类型注解"><a href="#类型注解" class="headerlink" title="类型注解"></a>类型注解</h3><p>在代码中涉及数据交互的地方，提供数据类型的注解（显示说明）<br>主要功能：</p>
+<ul>
+<li>帮助第三方IDE工具（如PyCharm）对代码进行类型推断，协助做代码提示</li>
+<li>帮助开发者对其变量进行注释</li>
+</ul>
+<p>支持：</p>
+<ul>
+<li>变量的类型注解</li>
+<li>函数（方法）形参列表和返回值的类型注解</li>
+</ul>
+<p>基础语法：<br><code>变量:类型</code><br>示例：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var_1: <span class="built_in">int</span> = <span class="number">10</span></span><br><span class="line">my_list: <span class="built_in">list</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>详细注解：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_list: ini[<span class="built_in">int</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">my_touple: <span class="built_in">tuple</span>[<span class="built_in">str</span>, <span class="built_in">int</span>, <span class="built_in">bool</span>] = (<span class="string">"itheima"</span>, <span class="number">666</span>, <span class="literal">True</span>)</span><br><span class="line">my_set: <span class="built_in">set</span>[<span class="built_in">int</span>] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}</span><br><span class="line">my_dict: <span class="built_in">dict</span>[<span class="built_in">str</span>, <span class="built_in">int</span>] = {<span class="string">"itheima"</span>, <span class="number">666</span>}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>类型注解仅仅是提示性的，并非决定性的<br>例如<code>var_1:int = "itheima"</code>并不会报错</p>
+<p>函数（方法）的-形参注解<br>代码示例：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">函数方法名</span>(<span class="params">形参名: 类型, 形参名: 类型, ......</span>):</span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>返回值注解：<br>代码示例：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">函数方法名</span>(<span class="params">形参: 类型, ......, 形参: 类型</span>) -&gt; 返回值类型:</span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Union类型"><a href="#Union类型" class="headerlink" title="Union类型"></a>Union类型</h3><p>使用<code>Union[类型,...,类型]</code>可以定义联合类型注解</p>
+<div class="note warning modern"><p>需要导入<code>Union</code>模块，<code>from typing import Union</code></p>
+</div>
+
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态，指的是：多种状态，即完成某个行为时，使用不同的对象会得到不同的状态。<br>多态常作用在继承关系上，比如：</p>
+<ul>
+<li>函数（方法）形参声明接受父类对象</li>
+<li>实际传入父类的子类对象进行工作</li>
+</ul>
+<p>即：</p>
+<ul>
+<li>以父类做定义声明</li>
+<li>以子类做实际工作</li>
+<li>用以获得同一行为，不同状态</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">speak</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">speak</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"狗叫是吧！"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">speak</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"喵喵喵"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>可以注意到父类Animal时空实现，这种设计的含义是：</p>
+<ul>
+<li>父类用来确定有哪些方法</li>
+<li>具体方法实现则由子类决定</li>
+</ul>
+<p>这种写法，就叫作抽象类（也可以称之为接口）<br>抽象类：含有抽象方法的类<br>抽象方法：方法体是空实现（<code>pass</code>）称之为抽象方法</p>
+<p>配合多态，完成</p>
+<ul>
+<li>抽象父类设计（设计标准）</li>
+<li>具体子类实现（实现标准）</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://rminit.github.io">rminit</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://rminit.github.io/posts/48c49f38.html">https://rminit.github.io/posts/48c49f38.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://rminit.github.io" target="_blank">rminit's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a></div><div class="post-share"><div class="social-share" data-image="https://www.loliapi.com/acg/pc/?3928" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/28fb5a7c.html" title="MySQL入门"><img class="cover" src="https://www.loliapi.com/acg/pc/?4495" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">MySQL入门</div></div><div class="info-2"><div class="info-item-1">MySQL简单介绍信息化社会，无处不在都是数据数据：  数据的存储  TXT EXCEL 数据库   数据的计算各种编程语言可以归纳为数据的计算一类   数据库的层级:库-&gt;表-&gt;数据 常见的数据库软件：  ORACLE甲骨文 MySQL SQLServer PostgreSQL SQLite  数据库是用来存储数据的，在这个过程中，会涉及到：  数据的新增 数据的删除 数据的修改 数据的查询 数据库、数据表的管理 …  SQL语言，就是一种对数据库、数据进行操作、管理、查询的工具 MySQL的安装MySQL的版本  MySQL community Serve社区版本，免费，MySQL不提供官方支持 MySQL Cluster集群版，开源免费，可将几个MySQL Server封装成一个Server MySQL Enterprise Edition商业版本，可以试用30天，官方提供技术支持 MySQL Cluster CGE商业高级集群版  MySQL官方下载地址 archlinux安装MySQL安装： 1sudo pacman -S...</div></div></div></a><a class="pagination-related" href="/posts/ccb0b82a.html" title="穿搭浅知"><img class="cover" src="https://www.loliapi.com/acg/pc/?9460" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">穿搭浅知</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/a6cafe14.html" title="Python.d10"><img class="cover" src="https://www.loliapi.com/acg/pc/?5966" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-05</div><div class="info-item-2">Python.d10</div></div><div class="info-2"><div class="info-item-1">异常什么是异常，异常也称为bugbug：早期的计算机采用大量的继电器工具，马克二型就是这样，1945年9月9日，下午三点，马克二型无法工作，技术人员试了很多方法，最后定位到70号继电器出错。负责人哈珀观察出错的继电器，发现一只飞蛾躺在中间，已经被继电器打死，她把蛾子取出，用透明胶布贴到“事件记录本”上，并注明“第一个发现虫子的实例”，由此之后，引发软件失效的缺陷，便称为bug 捕获异常遇到bug时，有两种处理情况：  整个程序因为bug停止运行 对bug进行提醒，整个程序继续运行  世界上没有完美无缺的事物，自然也不存在没有bug的程序。所以在真实工作中，我们不想因为小小的bug导致程序崩溃，也就是我们希望达到第2种情况，那么捕获异常就很重要了 捕获异常的作用在于，提前假设某处会出现异常，提前做好准备，当真有异常时，可以有后续处理手段   捕获常规异常基本语法： 1234try:  可能发生错误的代码except:  如果出现异常执行的代码  将except:改为except Exception as...</div></div></div></a><a class="pagination-related" href="/posts/79c303b3.html" title="Python.d1"><img class="cover" src="https://www.loliapi.com/acg/pc/?2136" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-10</div><div class="info-item-2">Python.d1</div></div><div class="info-2"><div class="info-item-1">Python中的6种值 number 支持int，float，complex，bool string 描述文本数据类型 list 有序可变序列 tuple 有序的不可变序列 set 无序的不重复集合 dictionary 无序的key-value值  注释123456# 这是当行注释"""  这是  多行  注释"""  变量定义变量名 = 变量值 数据类型和数据类型转换可以用type()得到数据类型 常用的类型转换  int() float() str()  标识符标识符命名规则,仅仅使用一些符号的组合：  英文 中文 数字 下划线不推荐使用中文命名，并且不能使用python内置关键字,python是大小写敏感的   运算符运算  加    减    乘   / 除 // 整除 % 取余 ** 指数  赋值运算符和复合赋值运算符 = += -= …  比较运算符123456- ==- !=- &gt;- &lt;- &gt;=- &lt;= </div></div></div></a><a class="pagination-related" href="/posts/d1cdce82.html" title="Python.d11"><img class="cover" src="https://www.loliapi.com/acg/pc/?9225" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-07</div><div class="info-item-2">Python.d11</div></div><div class="info-2"><div class="info-item-1">模块Python模块（Module），是一个Python文件，以.py结尾。模块能定义函数、类和、变量，模块里也能包含可执行代码 模块的导入基本语法： 1[from 模块名] import [模块 | 类 | 变量 | 函数 | *] [as 别名]  常见组合形式：  import 模块名 from 模块名 import 类、变量、方法等 from 模块名 import * import 模块名 as 别名 from 模块名 import 功能名 as 别名  import 模块名和from 模块名 import *的区别在于，调用方法、类、功能上的写法不同   自定义模块Python自定义模块非常简单，Python的模块就是一个.py文件，所以只要创建一个Python文件正常写功能和方法即可 当调用不同模块中有同名方法、类等，后导入的会覆盖前面   __main__变量和__all__变量示例： 1if __name__ == '__main__':  上述代码表示如果当前模块是主程序 1__all__ = [需要限制的方法、类名]...</div></div></div></a><a class="pagination-related" href="/posts/3fc3afae.html" title="Python.d13"><img class="cover" src="https://www.loliapi.com/acg/pc/?9961" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-12</div><div class="info-item-2">Python.d13</div></div><div class="info-2"><div class="info-item-1">pymysqlpython第三方库，可以是实现对MySQL数据库的操作。安装： 1pip install pymysql  创建MySQL的数据库链接示例代码： 123456789from pymysql import Connectionconn = Connection(  host = "localhost",  port = 3306,  user = 'root',  password = `123456`,)print(conn.get_server_info())conn.close()  执行SQL语句示例代码： 1234567891011from pymysql import Connectionconn = Connection(  host = "localhost",  port = 3306,  user = 'root',  password = `123456`,)cursor =...</div></div></div></a><a class="pagination-related" href="/posts/a1a73a0d.html" title="Python.d14"><img class="cover" src="https://www.loliapi.com/acg/pc/?8514" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-22</div><div class="info-item-2">Python.d14</div></div><div class="info-2"><div class="info-item-1">SparkApache Spark是用于大规模数据处理的统一分析引擎。简单来说，Spark是一款分布式的计算框架，用于调度成千上百的服务器集群，计算TB、PB乃至EB级别的海量数据 Python On SparkSpark作为全球顶级的分布式计算框架，支持众多的编程语言进行开发。而Python语言，则是Sprak重点支持的方向。 PySpark  作为Python库进行数据处理 提交至Sprak集群进行分布式集群计算  PySpark安装1pip install pyspark  PySpark入门构建PySpark执行环境入口对象使用PySpark库完成数据处理，首先需要构建一个执行环境入口对象。PySpark的执行环境入口对象是：类SprakContext：的类对象示例： 12345from pyspark import SprakConf,SparkContextconf = SparkConf().setMaster("local[*]").setAppName("test_spark_app")sc =...</div></div></div></a><a class="pagination-related" href="/posts/e0ca5209.html" title="Python.d2"><img class="cover" src="https://www.loliapi.com/acg/pc/?3792" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-12</div><div class="info-item-2">Python.d2</div></div><div class="info-2"><div class="info-item-1">字符串的三种定义方式123456# 单引号定义，双引号定义，# 字符串的三种定义方式```python# 单引号定义，双引号定义，三引号定义str1 =  '单引号'str2 = "双引号"str3 = """三引号"""  转义字符\   字符串拼接和字符串格式化1234567# 字符串拼接str1 = 'hello'str2 = "world"str3 = 'hello' + ' ' + "world"# 字符串格式化str4 = '%s %s' % (str1, str2)  占位符 %s %d %f  可以对浮点类型进行精度控制，方法同C语言类型   字符串快速格式化123name = 'rminit'str =...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">rminit</div><div class="author-info-description">just for fun!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/rminit"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/rminit" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1606638705@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站，这里记录我的日常和学习笔记，希望对您有所帮助...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#json%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">json数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#json%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8C%96"><span class="toc-number">1.1.</span> <span class="toc-text">json格式数据转化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E6%95%B0%E6%8D%AE%E5%92%8Cjson%E6%95%B0%E6%8D%AE%E7%9B%B8%E4%BA%92%E8%BD%AC%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">python数据和json数据相互转化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pycharts%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">pycharts模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85pyecharts%E6%A8%A1%E5%9D%97"><span class="toc-number">2.1.</span> <span class="toc-text">安装pyecharts模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">类的定义和使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">类的构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">类的内置方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#str-%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.1.</span> <span class="toc-text">__str__方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lt-%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.2.</span> <span class="toc-text">__lt__方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85"><span class="toc-number">3.4.</span> <span class="toc-text">封装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98"><span class="toc-number">3.4.1.</span> <span class="toc-text">私有成员</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-number">3.5.</span> <span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%86%99"><span class="toc-number">3.5.1.</span> <span class="toc-text">复写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E7%88%B6%E7%B1%BB%E5%90%8C%E5%90%8D%E6%88%90%E5%91%98"><span class="toc-number">3.5.2.</span> <span class="toc-text">调用父类同名成员</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3"><span class="toc-number">3.6.</span> <span class="toc-text">类型注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Union%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.7.</span> <span class="toc-text">Union类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%80%81"><span class="toc-number">3.8.</span> <span class="toc-text">多态</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/63af09b.html" title="Hexo的备份和恢复"><img src="https://www.loliapi.com/acg/pc/?9954" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo的备份和恢复"></a><div class="content"><a class="title" href="/posts/63af09b.html" title="Hexo的备份和恢复">Hexo的备份和恢复</a><time datetime="2024-12-27T17:26:34.000Z" title="发表于 2024-12-28 01:26:34">2024-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能"><img src="https://www.loliapi.com/acg/pc/?1553" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo添加本地搜索功能"></a><div class="content"><a class="title" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能">Hexo添加本地搜索功能</a><time datetime="2024-12-25T06:19:24.000Z" title="发表于 2024-12-25 14:19:24">2024-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a1a73a0d.html" title="Python.d14"><img src="https://www.loliapi.com/acg/pc/?8514" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d14"></a><div class="content"><a class="title" href="/posts/a1a73a0d.html" title="Python.d14">Python.d14</a><time datetime="2024-12-22T13:16:23.000Z" title="发表于 2024-12-22 21:16:23">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e10d4c29.html" title="Blender.d1"><img src="https://www.loliapi.com/acg/pc/?8525" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender.d1"></a><div class="content"><a class="title" href="/posts/e10d4c29.html" title="Blender.d1">Blender.d1</a><time datetime="2024-12-16T09:39:56.000Z" title="发表于 2024-12-16 17:39:56">2024-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3fc3afae.html" title="Python.d13"><img src="https://www.loliapi.com/acg/pc/?9961" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d13"></a><div class="content"><a class="title" href="/posts/3fc3afae.html" title="Python.d13">Python.d13</a><time datetime="2024-12-12T05:11:33.000Z" title="发表于 2024-12-12 13:11:33">2024-12-12</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">©2024 - 2025 By rminit</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

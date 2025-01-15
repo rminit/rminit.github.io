@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>rminit's blog</title><meta name="author" content="rminit"><meta name="copyright" content="rminit"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="rminit's blog">
+<meta property="og:url" content="https://rminit.github.io/index.html">
+<meta property="og:site_name" content="rminit's blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rminit.github.io/img/avatar.jpg">
+<meta property="article:author" content="rminit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rminit.github.io/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://rminit.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'rminit\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">rminit's blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">rminit's blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/rminit" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1606638705@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover"><a href="/posts/63af09b.html" title="Hexo的备份和恢复"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?9954" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo的备份和恢复"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/63af09b.html" title="Hexo的备份和恢复">Hexo的备份和恢复</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-27T17:26:34.000Z" title="发表于 2024-12-28 01:26:34">2024-12-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Hexo/">Hexo</a></span></div><div class="content">当我们在不同设备时维护、配置Hexo博客时，当你git你的GitHub Pages页面的内容并不能实现Hexo博客的备份和恢复，这是因为GitHub Pages上的内容是经过Hexo渲染过后的文件，即public文件夹下的内容，并非我们的博客源文件 最简单的方法是创建一个新的仓库，把本地所有的内容上传到该仓库，但这样会备份一些不必要的文件，例如public文件夹的内容。解决办法是在每次备份时候，先执行一遍hexo clean命令，也可以忽略public文件夹的上传。 备份我的博客根目录文件内容： 12345678910111213.├── _config.butterfly.yml├── _config.fluid.yml├── _config.landscape.yml├── _config.yml├── db.json├── node_modules├── package.json├── package-lock.json├── scaffolds├── search.xml├── source└──...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/a22d1046.html" title="Hexo添加本地搜索功能"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?1553" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo添加本地搜索功能"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能">Hexo添加本地搜索功能</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-25T06:19:24.000Z" title="发表于 2024-12-25 14:19:24">2024-12-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Hexo/">Hexo</a></span></div><div class="content">添加本地搜索功能本地搜索指将搜索范围局限在自己的所有博客，而非第三方搜索引擎：如百度、Google等。 在Hexo博客框架下实现此功能需要依赖第三方库，地址为: https://github.com/wzpan/hexo-generator-search 安装依赖： 1npm install hexo-generator-search --save  接着修改Hexo的全局配置文件，添加如下内容： 12345search:  path: search.xml  field: post  content: true  format: html  最后导入搜索模板文件search.xml文件到主题文件中，可以去 https://github.com/wzpan/hexo-generator-search 下载，也可以在刚刚安装的依赖包中找到，具体地址为...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/a1a73a0d.html" title="Python.d14"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?8514" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d14"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/a1a73a0d.html" title="Python.d14">Python.d14</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-22T13:16:23.000Z" title="发表于 2024-12-22 21:16:23">2024-12-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/Python/">Python</a></span></div><div class="content">SparkApache Spark是用于大规模数据处理的统一分析引擎。简单来说，Spark是一款分布式的计算框架，用于调度成千上百的服务器集群，计算TB、PB乃至EB级别的海量数据 Python On SparkSpark作为全球顶级的分布式计算框架，支持众多的编程语言进行开发。而Python语言，则是Sprak重点支持的方向。 PySpark  作为Python库进行数据处理 提交至Sprak集群进行分布式集群计算  PySpark安装1pip install pyspark  PySpark入门构建PySpark执行环境入口对象使用PySpark库完成数据处理，首先需要构建一个执行环境入口对象。PySpark的执行环境入口对象是：类SprakContext：的类对象示例： 12345from pyspark import SprakConf,SparkContextconf = SparkConf().setMaster("local[*]").setAppName("test_spark_app")sc =...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/e10d4c29.html" title="Blender.d1"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?8525" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender.d1"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/e10d4c29.html" title="Blender.d1">Blender.d1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-16T09:39:56.000Z" title="发表于 2024-12-16 17:39:56">2024-12-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E8%83%BD/">技能</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E8%83%BD/Blender/">Blender</a></span></div><div class="content">BlenderBlender是一款自由和开源的三维计算机图形软件，它可以用于创建和渲染三维模型、动画、游戏、视觉效果等。 安装blenderBlender可以在多种平台上运行，包括Windows、Linux、Mac OS X等，并且占用空间相对于其他同类型软件较少，功能丰富。因为Blender原生支持linux，所以在archlinux安装blender是十分简单的。只需要通过一行代码安装即可 1sudo pacman -S blender  安装之后打开blender界面如下： 基本操作视角控制旋转视角：鼠标中建按住可旋转平移视角：shift+鼠标中键推进推远视图：滚动鼠标中建 物体控制移动物体：G旋转物体：R缩放物体：S恢复变换：ALT+G，ALT+R，ALT+S新建物体：Shift+A，Shinft+D删除物体：X或者Delete隐藏物体：H显示隐藏物体：ALT+H显示没有被选中的物体：Shift+H选择物体刷选：C...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/3fc3afae.html" title="Python.d13"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?9961" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d13"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/3fc3afae.html" title="Python.d13">Python.d13</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-12T05:11:33.000Z" title="发表于 2024-12-12 13:11:33">2024-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/Python/">Python</a></span></div><div class="content">pymysqlpython第三方库，可以是实现对MySQL数据库的操作。安装： 1pip install pymysql  创建MySQL的数据库链接示例代码： 123456789from pymysql import Connectionconn = Connection(  host = "localhost",  port = 3306,  user = 'root',  password = `123456`,)print(conn.get_server_info())conn.close()  执行SQL语句示例代码： 1234567891011from pymysql import Connectionconn = Connection(  host = "localhost",  port = 3306,  user = 'root',  password = `123456`,)cursor =...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/28fb5a7c.html" title="MySQL入门"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?4495" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL入门"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/28fb5a7c.html" title="MySQL入门">MySQL入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-09T12:56:34.000Z" title="发表于 2024-12-09 20:56:34">2024-12-09</time></span></div><div class="content">MySQL简单介绍信息化社会，无处不在都是数据数据：  数据的存储  TXT EXCEL 数据库   数据的计算各种编程语言可以归纳为数据的计算一类   数据库的层级:库-&gt;表-&gt;数据 常见的数据库软件：  ORACLE甲骨文 MySQL SQLServer PostgreSQL SQLite  数据库是用来存储数据的，在这个过程中，会涉及到：  数据的新增 数据的删除 数据的修改 数据的查询 数据库、数据表的管理 …  SQL语言，就是一种对数据库、数据进行操作、管理、查询的工具 MySQL的安装MySQL的版本  MySQL community Serve社区版本，免费，MySQL不提供官方支持 MySQL Cluster集群版，开源免费，可将几个MySQL Server封装成一个Server MySQL Enterprise Edition商业版本，可以试用30天，官方提供技术支持 MySQL Cluster CGE商业高级集群版  MySQL官方下载地址 archlinux安装MySQL安装： 1sudo pacman -S...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/48c49f38.html" title="Python.d12"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?3928" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d12"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/48c49f38.html" title="Python.d12">Python.d12</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-06T06:09:14.000Z" title="发表于 2024-12-06 14:09:14">2024-12-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/Python/">Python</a></span></div><div class="content">json数据格式json是一种轻量级的数据交互格式，可以按照json指定的格式去组织和封装数据json本质是带有特定格式的字符串功能：在各个编程语言中流通的数据格式，负责不同编程语言的数据传递和交互。类似于：  国际通用语言-英语 普通话  示例：Python格式数据–&gt;json数据格式–&gt;c语言数据可用的数据格式c语言格式数据–&gt;json数据格式–&gt;Python可用的数据格式 json格式数据转化json数据格式示例： 12{"name":"admin","age":18}[{"name":"admin","age":18},{"name":"root","age":16}]  python数据和json数据相互转化12345678# 导入json模块import json#...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/ccb0b82a.html" title="穿搭浅知"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?9460" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="穿搭浅知"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ccb0b82a.html" title="穿搭浅知">穿搭浅知</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-25T04:27:59.000Z" title="发表于 2024-11-25 12:27:59">2024-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/life/">life</a></span></div><div class="content">...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/49afcd1.html" title="时间分块法"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?9157" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="时间分块法"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/49afcd1.html" title="时间分块法">时间分块法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-22T10:02:37.000Z" title="发表于 2024-11-22 18:02:37">2024-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/life/">life</a></span></div><div class="content">我们时常感觉自己的时间并不充足，我们是否会有这么一种感觉，就是我们大多的事情需要干，但是我们的时间太少了，总是把应该早点完成的事情拖很久 我们很多人应该都想追求生活和工作的完美平衡，但在众多任务的重压下保持高效和平衡并非易事。 时间分快法时间分块法不仅可以帮助你追踪并完成任务，还能显著增强我们的时间掌控感。它的主要好处：  帮助高效追踪并完成任务 帮助进行深度工作 高效完成浅层工作 追踪你的时间花费 阻止你进行多任务处理  如何使用时间 列出代办清单并明确优先事项  首先，需要将日常工作、生活中的所有事项列成清单，并大致估算每项任务所需要的时间。    需要注意的是，要本着「要事第一」的原则，明确你的优先事项和目标，将优先事项与其他普通任务区分开来——可以使用艾森豪威尔矩阵来帮助你筛选出那些既不重要也不紧急的事项，花些时间深思那些对你而言最为重要的事物，例如：个人成长、照顾家庭等等。   找出对你而言最重要的 1～3 项关键任务，并围绕着这些优先事项优先进行时间分配，确保有足够的时间投入到最重要的事情上来。  为没项任务分配特定的时间段  将一天划分为若干时间段——可以以 28...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/67ccc273.html" title="SillyTavern.d1"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?7130" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SillyTavern.d1"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/67ccc273.html" title="SillyTavern.d1">SillyTavern.d1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-18T16:14:51.000Z" title="发表于 2024-11-19 00:14:51">2024-11-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI/">AI</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI/SillyTavern/">SillyTavern</a></span></div><div class="content">SillyTavernSillyTavern 是一个可以安装在电脑（和安卓手机）上的用户界面，让您可以与文本生成的人工智能互动，并与您或社区创建的角色聊天/玩角色扮演游戏。 扩展：  角色情绪识别 聊天记录自动摘要 在聊天窗口发送图片，并由人工智能解释图片内容 文本图像生成 聊天信息转语音  在linux下安装使用123git clone https://github.com/SillyTavern/SillyTavern -b releasecd SillyTavern./start.sh </div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">…</span><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">rminit</div><div class="author-info-description">just for fun!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/rminit"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/rminit" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1606638705@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站，这里记录我的日常和学习笔记，希望对您有所帮助...</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/63af09b.html" title="Hexo的备份和恢复"><img src="https://www.loliapi.com/acg/pc/?9954" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo的备份和恢复"></a><div class="content"><a class="title" href="/posts/63af09b.html" title="Hexo的备份和恢复">Hexo的备份和恢复</a><time datetime="2024-12-27T17:26:34.000Z" title="发表于 2024-12-28 01:26:34">2024-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能"><img src="https://www.loliapi.com/acg/pc/?1553" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo添加本地搜索功能"></a><div class="content"><a class="title" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能">Hexo添加本地搜索功能</a><time datetime="2024-12-25T06:19:24.000Z" title="发表于 2024-12-25 14:19:24">2024-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a1a73a0d.html" title="Python.d14"><img src="https://www.loliapi.com/acg/pc/?8514" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d14"></a><div class="content"><a class="title" href="/posts/a1a73a0d.html" title="Python.d14">Python.d14</a><time datetime="2024-12-22T13:16:23.000Z" title="发表于 2024-12-22 21:16:23">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e10d4c29.html" title="Blender.d1"><img src="https://www.loliapi.com/acg/pc/?8525" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender.d1"></a><div class="content"><a class="title" href="/posts/e10d4c29.html" title="Blender.d1">Blender.d1</a><time datetime="2024-12-16T09:39:56.000Z" title="发表于 2024-12-16 17:39:56">2024-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3fc3afae.html" title="Python.d13"><img src="https://www.loliapi.com/acg/pc/?9961" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d13"></a><div class="content"><a class="title" href="/posts/3fc3afae.html" title="Python.d13">Python.d13</a><time datetime="2024-12-12T05:11:33.000Z" title="发表于 2024-12-12 13:11:33">2024-12-12</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/"><span class="card-category-list-name">AI</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/SillyTavern/"><span class="card-category-list-name">SillyTavern</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/stable-diffulusion/"><span class="card-category-list-name">stable diffulusion</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Game/"><span class="card-category-list-name">Game</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/life/"><span class="card-category-list-name">life</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">12</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">12</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/"><span class="card-category-list-name">后端</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/blender/" style="font-size: 1.15em; color: rgb(108, 58, 59);">blender</a><a href="/tags/hexo/" style="font-size: 1.39em; color: rgb(140, 50, 125);">hexo</a><a href="/tags/butterfly/" style="font-size: 1.33em; color: rgb(62, 50, 175);">butterfly</a><a href="/tags/fluid/" style="font-size: 1.21em; color: rgb(50, 132, 117);">fluid</a><a href="/tags/android/" style="font-size: 1.21em; color: rgb(100, 152, 129);">android</a><a href="/tags/linux/" style="font-size: 1.27em; color: rgb(129, 115, 50);">linux</a><a href="/tags/mysql/" style="font-size: 1.21em; color: rgb(107, 121, 80);">mysql</a><a href="/tags/neovim/" style="font-size: 1.21em; color: rgb(95, 123, 89);">neovim</a><a href="/tags/python/" style="font-size: 1.45em; color: rgb(50, 157, 198);">python</a><a href="/tags/spark/" style="font-size: 1.15em; color: rgb(50, 144, 124);">spark</a><a href="/tags/ST/" style="font-size: 1.15em; color: rgb(167, 196, 142);">ST</a><a href="/tags/SD/" style="font-size: 1.15em; color: rgb(50, 129, 83);">SD</a><a href="/tags/sunshine/" style="font-size: 1.15em; color: rgb(159, 127, 83);">sunshine</a><a href="/tags/samba/" style="font-size: 1.15em; color: rgb(141, 50, 98);">samba</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/12/">
+          <span class="card-archive-list-date">十二月 2024</span>
+          <span class="card-archive-list-count">7</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">13</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/10/">
+          <span class="card-archive-list-date">十月 2024</span>
+          <span class="card-archive-list-count">19</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">39</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastpushdate="2025-01-15T16:05:14.592Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">©2024 - 2025 By rminit</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["欲买桂花同载酒，终不似，少年游","少年不得之物，终将困其一生","简单的人喜欢简单的事","欢迎来到rminit的小窝😄"])
+  } else {
+    document.getElementById("subtitle").textContent = "欲买桂花同载酒，终不似，少年游"
+  }
+}
+typedJSFn.run(subtitleType)</script></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

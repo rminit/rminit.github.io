@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Python.d3 | rminit's blog</title><meta name="author" content="rminit"><meta name="copyright" content="rminit"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="判断语句if12if love == 100:  print(&quot;I love you!&quot;)  if else1234if love == 100:  print(&quot;I love you very much!&quot;)else:  print(&quot;Maybe?&quot;)  if elif else123456if love == 100:  print(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python.d3">
+<meta property="og:url" content="https://rminit.github.io/posts/97cd629f.html">
+<meta property="og:site_name" content="rminit's blog">
+<meta property="og:description" content="判断语句if12if love == 100:  print(&quot;I love you!&quot;)  if else1234if love == 100:  print(&quot;I love you very much!&quot;)else:  print(&quot;Maybe?&quot;)  if elif else123456if love == 100:  print(">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.loliapi.com/acg/pc/?2133">
+<meta property="article:published_time" content="2024-10-14T08:07:31.000Z">
+<meta property="article:modified_time" content="2025-01-15T16:01:59.783Z">
+<meta property="article:author" content="rminit">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.loliapi.com/acg/pc/?2133"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://rminit.github.io/posts/97cd629f.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python.d3',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/top_img.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">rminit's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Python.d3</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Python.d3</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-14T08:07:31.000Z" title="发表于 2024-10-14 16:07:31">2024-10-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-15T16:01:59.783Z" title="更新于 2025-01-16 00:01:59">2025-01-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AF%AD%E8%A8%80/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url(/img/top_img.jpg);"></div><article class="container post-content" id="article-container"><h2 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> love == <span class="number">100</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"I love you!"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> love == <span class="number">100</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"I love you very much!"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"Maybe?"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="if-elif-else"><a href="#if-elif-else" class="headerlink" title="if elif else"></a>if elif else</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> love == <span class="number">100</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"I love you so much!"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="number">0</span>&lt;love&lt;<span class="number">100</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"Maybe?"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"No!"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">100</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"美羊羊，我喜欢你"</span>)</span><br><span class="line">  i += <span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">100</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"美羊羊，我喜欢你"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<div class="note warning flat"><p>range的三种使用方式<br>range(num)<br>range(num1,num2)<br>range(num1,num2,step)</p>
+</div>
+
+<h2 id="continue和break"><a href="#continue和break" class="headerlink" title="continue和break"></a>continue和break</h2><p>continue: 跳过当前循环<br>break： 跳出循环</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://rminit.github.io">rminit</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://rminit.github.io/posts/97cd629f.html">https://rminit.github.io/posts/97cd629f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://rminit.github.io" target="_blank">rminit's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a></div><div class="post-share"><div class="social-share" data-image="https://www.loliapi.com/acg/pc/?2133" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/251c7100.html" title="开始使用neovim"><img class="cover" src="https://www.loliapi.com/acg/pc/?1842" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">开始使用neovim</div></div><div class="info-2"><div class="info-item-1">开始使用neovim通过B站up主”TheCW”接触到”最强”代码编辑器：vim之后，我就对vim着迷了，但是在archlinux下，vim不能使用系统剪贴板，令我十分的苦恼。vim作为vi的复刻，neovim作为复刻的复刻，有其一些独特的特征作为Vim的改进版, 它使用Lua 作为配置文件,有着很现代化的特性, 解决了 Vim 的很多遗留问题… archlinux安装neovim1sudo pacman -S neovim  基本操作vim（nvim）四种操作模式  normal  默认模式 commend 命令模式 insert  输入模式 visible 可视模式  插件插件管理器: Lazy.vimLazyVim 是一个基于💤 lazy.nvim的Neovim配置方案，让定制和扩展变得简单直观。 您不必再在“从零配置”和“使用预制发行版”之间做选择，LazyVim 提供了一个两全其美的方式——既可以享受默认配置带来的便利，又能根据个人需求来灵活调整各项设置✨ 特性  🔥 将你的 Neovim 打造为一个功能完备的 IDE 💤 使用 lazy.nvim...</div></div></div></a><a class="pagination-related" href="/posts/e0ca5209.html" title="Python.d2"><img class="cover" src="https://www.loliapi.com/acg/pc/?3792" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Python.d2</div></div><div class="info-2"><div class="info-item-1">字符串的三种定义方式123456# 单引号定义，双引号定义，# 字符串的三种定义方式```python# 单引号定义，双引号定义，三引号定义str1 =  '单引号'str2 = "双引号"str3 = """三引号"""  转义字符\   字符串拼接和字符串格式化1234567# 字符串拼接str1 = 'hello'str2 = "world"str3 = 'hello' + ' ' + "world"# 字符串格式化str4 = '%s %s' % (str1, str2)  占位符 %s %d %f  可以对浮点类型进行精度控制，方法同C语言类型   字符串快速格式化123name = 'rminit'str =...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/a6cafe14.html" title="Python.d10"><img class="cover" src="https://www.loliapi.com/acg/pc/?5966" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-05</div><div class="info-item-2">Python.d10</div></div><div class="info-2"><div class="info-item-1">异常什么是异常，异常也称为bugbug：早期的计算机采用大量的继电器工具，马克二型就是这样，1945年9月9日，下午三点，马克二型无法工作，技术人员试了很多方法，最后定位到70号继电器出错。负责人哈珀观察出错的继电器，发现一只飞蛾躺在中间，已经被继电器打死，她把蛾子取出，用透明胶布贴到“事件记录本”上，并注明“第一个发现虫子的实例”，由此之后，引发软件失效的缺陷，便称为bug 捕获异常遇到bug时，有两种处理情况：  整个程序因为bug停止运行 对bug进行提醒，整个程序继续运行  世界上没有完美无缺的事物，自然也不存在没有bug的程序。所以在真实工作中，我们不想因为小小的bug导致程序崩溃，也就是我们希望达到第2种情况，那么捕获异常就很重要了 捕获异常的作用在于，提前假设某处会出现异常，提前做好准备，当真有异常时，可以有后续处理手段   捕获常规异常基本语法： 1234try:  可能发生错误的代码except:  如果出现异常执行的代码  将except:改为except Exception as...</div></div></div></a><a class="pagination-related" href="/posts/79c303b3.html" title="Python.d1"><img class="cover" src="https://www.loliapi.com/acg/pc/?2136" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-10</div><div class="info-item-2">Python.d1</div></div><div class="info-2"><div class="info-item-1">Python中的6种值 number 支持int，float，complex，bool string 描述文本数据类型 list 有序可变序列 tuple 有序的不可变序列 set 无序的不重复集合 dictionary 无序的key-value值  注释123456# 这是当行注释"""  这是  多行  注释"""  变量定义变量名 = 变量值 数据类型和数据类型转换可以用type()得到数据类型 常用的类型转换  int() float() str()  标识符标识符命名规则,仅仅使用一些符号的组合：  英文 中文 数字 下划线不推荐使用中文命名，并且不能使用python内置关键字,python是大小写敏感的   运算符运算  加    减    乘   / 除 // 整除 % 取余 ** 指数  赋值运算符和复合赋值运算符 = += -= …  比较运算符123456- ==- !=- &gt;- &lt;- &gt;=- &lt;= </div></div></div></a><a class="pagination-related" href="/posts/d1cdce82.html" title="Python.d11"><img class="cover" src="https://www.loliapi.com/acg/pc/?9225" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-07</div><div class="info-item-2">Python.d11</div></div><div class="info-2"><div class="info-item-1">模块Python模块（Module），是一个Python文件，以.py结尾。模块能定义函数、类和、变量，模块里也能包含可执行代码 模块的导入基本语法： 1[from 模块名] import [模块 | 类 | 变量 | 函数 | *] [as 别名]  常见组合形式：  import 模块名 from 模块名 import 类、变量、方法等 from 模块名 import * import 模块名 as 别名 from 模块名 import 功能名 as 别名  import 模块名和from 模块名 import *的区别在于，调用方法、类、功能上的写法不同   自定义模块Python自定义模块非常简单，Python的模块就是一个.py文件，所以只要创建一个Python文件正常写功能和方法即可 当调用不同模块中有同名方法、类等，后导入的会覆盖前面   __main__变量和__all__变量示例： 1if __name__ == '__main__':  上述代码表示如果当前模块是主程序 1__all__ = [需要限制的方法、类名]...</div></div></div></a><a class="pagination-related" href="/posts/48c49f38.html" title="Python.d12"><img class="cover" src="https://www.loliapi.com/acg/pc/?3928" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-06</div><div class="info-item-2">Python.d12</div></div><div class="info-2"><div class="info-item-1">json数据格式json是一种轻量级的数据交互格式，可以按照json指定的格式去组织和封装数据json本质是带有特定格式的字符串功能：在各个编程语言中流通的数据格式，负责不同编程语言的数据传递和交互。类似于：  国际通用语言-英语 普通话  示例：Python格式数据–&gt;json数据格式–&gt;c语言数据可用的数据格式c语言格式数据–&gt;json数据格式–&gt;Python可用的数据格式 json格式数据转化json数据格式示例： 12{"name":"admin","age":18}[{"name":"admin","age":18},{"name":"root","age":16}]  python数据和json数据相互转化12345678# 导入json模块import json#...</div></div></div></a><a class="pagination-related" href="/posts/3fc3afae.html" title="Python.d13"><img class="cover" src="https://www.loliapi.com/acg/pc/?9961" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-12</div><div class="info-item-2">Python.d13</div></div><div class="info-2"><div class="info-item-1">pymysqlpython第三方库，可以是实现对MySQL数据库的操作。安装： 1pip install pymysql  创建MySQL的数据库链接示例代码： 123456789from pymysql import Connectionconn = Connection(  host = "localhost",  port = 3306,  user = 'root',  password = `123456`,)print(conn.get_server_info())conn.close()  执行SQL语句示例代码： 1234567891011from pymysql import Connectionconn = Connection(  host = "localhost",  port = 3306,  user = 'root',  password = `123456`,)cursor =...</div></div></div></a><a class="pagination-related" href="/posts/a1a73a0d.html" title="Python.d14"><img class="cover" src="https://www.loliapi.com/acg/pc/?8514" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-22</div><div class="info-item-2">Python.d14</div></div><div class="info-2"><div class="info-item-1">SparkApache Spark是用于大规模数据处理的统一分析引擎。简单来说，Spark是一款分布式的计算框架，用于调度成千上百的服务器集群，计算TB、PB乃至EB级别的海量数据 Python On SparkSpark作为全球顶级的分布式计算框架，支持众多的编程语言进行开发。而Python语言，则是Sprak重点支持的方向。 PySpark  作为Python库进行数据处理 提交至Sprak集群进行分布式集群计算  PySpark安装1pip install pyspark  PySpark入门构建PySpark执行环境入口对象使用PySpark库完成数据处理，首先需要构建一个执行环境入口对象。PySpark的执行环境入口对象是：类SprakContext：的类对象示例： 12345from pyspark import SprakConf,SparkContextconf = SparkConf().setMaster("local[*]").setAppName("test_spark_app")sc =...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">rminit</div><div class="author-info-description">just for fun!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/rminit"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/rminit" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1606638705@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站，这里记录我的日常和学习笔记，希望对您有所帮助...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.</span> <span class="toc-text">判断语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if"><span class="toc-number">1.1.</span> <span class="toc-text">if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else"><span class="toc-number">1.2.</span> <span class="toc-text">if else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-elif-else"><span class="toc-number">1.3.</span> <span class="toc-text">if elif else</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.</span> <span class="toc-text">循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#while%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.1.</span> <span class="toc-text">while循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.2.</span> <span class="toc-text">for循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#continue%E5%92%8Cbreak"><span class="toc-number">3.</span> <span class="toc-text">continue和break</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/63af09b.html" title="Hexo的备份和恢复"><img src="https://www.loliapi.com/acg/pc/?9954" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo的备份和恢复"></a><div class="content"><a class="title" href="/posts/63af09b.html" title="Hexo的备份和恢复">Hexo的备份和恢复</a><time datetime="2024-12-27T17:26:34.000Z" title="发表于 2024-12-28 01:26:34">2024-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能"><img src="https://www.loliapi.com/acg/pc/?1553" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo添加本地搜索功能"></a><div class="content"><a class="title" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能">Hexo添加本地搜索功能</a><time datetime="2024-12-25T06:19:24.000Z" title="发表于 2024-12-25 14:19:24">2024-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a1a73a0d.html" title="Python.d14"><img src="https://www.loliapi.com/acg/pc/?8514" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d14"></a><div class="content"><a class="title" href="/posts/a1a73a0d.html" title="Python.d14">Python.d14</a><time datetime="2024-12-22T13:16:23.000Z" title="发表于 2024-12-22 21:16:23">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e10d4c29.html" title="Blender.d1"><img src="https://www.loliapi.com/acg/pc/?8525" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender.d1"></a><div class="content"><a class="title" href="/posts/e10d4c29.html" title="Blender.d1">Blender.d1</a><time datetime="2024-12-16T09:39:56.000Z" title="发表于 2024-12-16 17:39:56">2024-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3fc3afae.html" title="Python.d13"><img src="https://www.loliapi.com/acg/pc/?9961" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d13"></a><div class="content"><a class="title" href="/posts/3fc3afae.html" title="Python.d13">Python.d13</a><time datetime="2024-12-12T05:11:33.000Z" title="发表于 2024-12-12 13:11:33">2024-12-12</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">©2024 - 2025 By rminit</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>rminit's blog</title><meta name="author" content="rminit"><meta name="copyright" content="rminit"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="rminit's blog">
+<meta property="og:url" content="https://rminit.github.io/page/3/index.html">
+<meta property="og:site_name" content="rminit's blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rminit.github.io/img/avatar.jpg">
+<meta property="article:author" content="rminit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rminit.github.io/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://rminit.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'rminit\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">rminit's blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">rminit's blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/rminit" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1606638705@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover"><a href="/posts/67661f8e.html" title="Butterfly设置文章随机封面"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?4460" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly设置文章随机封面"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/67661f8e.html" title="Butterfly设置文章随机封面">Butterfly设置文章随机封面</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-30T08:17:57.000Z" title="发表于 2024-10-30 16:17:57">2024-10-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Hexo/">Hexo</a></span></div><div class="content">配置butterfly主题时，如果想设置随机封面，会发生这么一种情况，就是有些文章封面图片都是同一张,如下所示： 解决方案在博客更目录/themes/butterfly/scripts 新建random_img.js文件添加如下代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849/** * Butterfly * ramdom cover */'use strict'hexo.extend.filter.register('before_post_render', function (data) {    const { config } = this    if (config.post_asset_folder) {        const imgTestReg = /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/       ...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/629787b4.html" title="Hexo生成永久链接"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?199" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo生成永久链接"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/629787b4.html" title="Hexo生成永久链接">Hexo生成永久链接</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-28T16:02:24.000Z" title="发表于 2024-10-29 00:02:24">2024-10-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Hexo/">Hexo</a></span></div><div class="content">Hexo 文章链接默认的生成规则是：:year/:month/:day/:title一旦我们修改了时间或者文章标题，那么就会导致链接改变从而造成分享出去的页面404解决办法是通过安装永久链接插件来解决这个问题。 安装插件1npm install hexo-abbrlink --save  修改全局配置文件_config.yml修改如下: 12## permalink: :year/:month/:day/:title/permalink: posts/:abbrlink.html  ## 此处可以自己设置  并增加以下内容： 1234567891011121314## abbrlink configabbrlink:  alg: crc32      #support crc16(default) and crc32 进制  rep: hex        #support dec(default) and hex  算法  drafts: false   #(true)Process draft,(false)Do not process draft....</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/e5b00f52.html" title="初识samba和简单使用"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?8069" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="初识samba和简单使用"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/e5b00f52.html" title="初识samba和简单使用">初识samba和简单使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-26T17:11:16.000Z" title="发表于 2024-10-27 01:11:16">2024-10-27</time></span></div><div class="content">最近有将电脑主机机械磁盘的内容共享到局域网供其他设备使用的需求，比如电视观看电脑上下载好的视频，通过万能的Google之后，我了解到Linux系统可以通过samba来实现这个功能。下面是我对samba的一些简单使用： sambasamba 是用于 Linux 和 Unix 的标准 Windows 互操作性程序套件。自 1992 年以来，Samba 为所有使用 SMB/CIFS协议的客户端提供了安全、稳定和快速的文件和打印服务，例如所有版本的 DOS 和 Windows、OS/2、Linux 和许多其他系统。 samba的简单使用安装samba1sudo pacman -S samba  创建samba账户1sudo smbpasswd -a rminit  注意创建samba账户时，需要创建linux账户   创建smb配置文件samba 服务的配置文件 /etc/samba/smb.conf，安装samba后，默认不存在这个文件需要从 Samba 的 Git...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/90a0a686.html" title="Python.d7"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?6865" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d7"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/90a0a686.html" title="Python.d7">Python.d7</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-25T09:35:10.000Z" title="发表于 2024-10-25 17:35:10">2024-10-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/Python/">Python</a></span></div><div class="content">数据容器总结数据容器分类 是否支持下标索引 支持：list，tuple，string 不支持：set，dict   是否支持重复元素 支持：list,tuple,string 不支持：set，dict   是否可以修改 支持：list，set, dict 不支持：tuple,string    数据容器应用场景 列表：一批数据，可修改，可重复场景 元组：一批数据，不可修改，可重复的存储场景 字符串：一串字符串的存储场景 集合：一批数据，去重存储场景 字典：一篇数据，可用key检索value的存储场景  数据容器的通用操作数据容器的遍历操作 5类数据都支持for循环 列表，元组，字符串支持while循环，集合，字典不支持（不支持下标索引）  数据容器的统计操作 len(容器) 统计元素个数 max(容器) 统计元素最大值 min(容器) 统计元素最小值  数据容器的转换操作 list() str() tuple() set()  数据容器的排序操作1sorted(容器,[reverse=True])  sorted()会将容器正向排序，reverse = True则逆向排序  </div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/e7a79610.html" title="Python.d6"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?1265" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d6"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/e7a79610.html" title="Python.d6">Python.d6</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-23T17:31:40.000Z" title="发表于 2024-10-24 01:31:40">2024-10-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/Python/">Python</a></span></div><div class="content">元组元组和列表一样可以封装多个、不同类型的元素，但最大的不同是：元组一旦定义完成，就不可修改元组拥有以下特点：  可以容纳多个数据 可以容纳不同类型数据（混装） 有序存储（下标索引） 允许重复数据 不可修改（增加或删除） 支持for循环  元组的定义1234567# 定义元组字面量(element, element, ..., element)# 定义元组变量var = (elemen, element, element)# 定义空元组var = () # 方式1 var = tuple() # 方式2   元组tuple的下标索引和列表list类似   12tupl = ((1,2,3),(1,2,3))tup_ele =...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/699d41f3.html" title="Hexo Front-Matter简介"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?1573" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo Front-Matter简介"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/699d41f3.html" title="Hexo Front-Matter简介">Hexo Front-Matter简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-22T06:04:10.000Z" title="发表于 2024-10-22 14:04:10">2024-10-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Hexo/">Hexo</a></span></div><div class="content">Front-matter是markdown文件上方以---分割的区域，用于指定当前文章参数  Page Front-Matter 用于单独页面配置 Post Front-Matter 用于文章页配置  Hexo Page...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/7eaec7aa.html" title="Python.d5"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?2294" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d5"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7eaec7aa.html" title="Python.d5">Python.d5</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-21T15:54:45.000Z" title="发表于 2024-10-21 23:54:45">2024-10-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/Python/">Python</a></span></div><div class="content">数据容器存储多个元素的Python数据类型元素可以是任意类型的数据，如字符串，数字，布尔类型等。数据容器根据特点的不同，如：  是否支持重复元素 是否可以修改 是否有序  分为5类，分别是  list tuple str set dict  列表 可容纳多个元素 可容纳不同类型的元素 有序存储 可重复元素 可修改元素  字面量1[element1, element2, element3, ...]  list可以嵌套   1[[1, 2, 3], [4, 5, 6]]  list下标索引list下标顺序从0开始，即0 ~ n，list[0]对应list最开始的元素。 list下标逆序从-1开始，即-n ~ -1, list[-1]对应list最后一位元素。 123my_list = [1, 2, 3]element_start = my_list[0]element_end = my_list[-1]  嵌套列表的下标 12llist = [[1, 2, 3], [4, 5, 6]]element_left =...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/3aeef468.html" title="Neovim自定义snippets"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?7476" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Neovim自定义snippets"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/3aeef468.html" title="Neovim自定义snippets">Neovim自定义snippets</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-18T20:50:03.000Z" title="发表于 2024-10-19 04:50:03">2024-10-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF/Linux/">Linux</a></span></div><div class="content">lazyvim自带的代码补全和代码段已经很强大了，但是在一些场景中，尤其是我在些markdown时，经常需要自定义代码片段，旨在提高书写效率下面是在lazyvim自定义代码段的步骤： 安装Luasnip插件打开LazyExtras安装luasnip插件 创建代码片段文件12mkdir -p ~/.config/nvim/lua/snippetstouch ~/.config/nvim/lua/snippets/my_snippets.lua  自定义代码片段代码片段用lua编写，样例如下： 1234567891011121314151617181920212223242526272829local ls = require("luasnip")local s = ls.snippetlocal i = ls.insert_nodelocal t = ls.text_nodelocal c = ls.choice_nodelocal f = ls.function_node-- 定义自定义代码片段ls.add_snippets("lua",...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/9a9f73c.html" title="Python.d4"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?5955" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d4"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/9a9f73c.html" title="Python.d4">Python.d4</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-17T13:50:16.000Z" title="发表于 2024-10-17 21:50:16">2024-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80/Python/">Python</a></span></div><div class="content">什么是函数，函数就是组织好，实现特定功能的代码段。如len(),int(),print()等 定义函数例子如下: 12345def my_len(data):  count = 0  for i in data:    count += 1  print(f"字符串{data}长度是{count}")  使用函数的优点  将功能封装在函数内，可重复利用 提高代码复用性，减少重复代码，提高开发效率  函数基础定义语法123def 函数名(传入参数):  函数体  return 返回值  不需要传入参数，只需要括号即可   返回值函数在执行完成后，返回给调用者的结果在return函数执行结束 没有使用return时，返回None Node是Python特殊字面量，其类型是&lt;class...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/55e37947.html" title="Butterfly主题下的外挂标签"><img class="post-bg" src="https://www.loliapi.com/acg/pc/?3514" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly主题下的外挂标签"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/55e37947.html" title="Butterfly主题下的外挂标签">Butterfly主题下的外挂标签</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-15T21:35:32.000Z" title="发表于 2024-10-16 05:35:32">2024-10-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/Hexo/">Hexo</a></span></div><div class="content">分栏tab示例代码样式预览1234567891011121314{% tabs test4 %}&lt;!-- tab 第一个Tab --&gt;**tab名字为第一个Tab**&lt;!-- endtab --&gt;&lt;!-- tab @fab fa-apple-pay --&gt;**只有图标 没有Tab名字**&lt;!-- endtab --&gt;&lt;!-- tab 炸弹@fas fa-bomb --&gt;**名字+icon**&lt;!-- endtab --&gt;{% endtabs %}第一个Tab炸弹tab名字为第一个Tab只有图标 没有Tab名字名字+icon  标签外挂标签外挂是 Hexo 独有的功能，并不是标准的 Markdown 格式。 以下的写法，只适用于Butterfly主题，用在其它主题上不会有效果，甚至可能会报错。 note123{% note type[icon] mode %}{% endnote...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">rminit</div><div class="author-info-description">just for fun!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/rminit"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/rminit" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1606638705@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站，这里记录我的日常和学习笔记，希望对您有所帮助...</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/63af09b.html" title="Hexo的备份和恢复"><img src="https://www.loliapi.com/acg/pc/?9954" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo的备份和恢复"></a><div class="content"><a class="title" href="/posts/63af09b.html" title="Hexo的备份和恢复">Hexo的备份和恢复</a><time datetime="2024-12-27T17:26:34.000Z" title="发表于 2024-12-28 01:26:34">2024-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能"><img src="https://www.loliapi.com/acg/pc/?1553" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo添加本地搜索功能"></a><div class="content"><a class="title" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能">Hexo添加本地搜索功能</a><time datetime="2024-12-25T06:19:24.000Z" title="发表于 2024-12-25 14:19:24">2024-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a1a73a0d.html" title="Python.d14"><img src="https://www.loliapi.com/acg/pc/?8514" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d14"></a><div class="content"><a class="title" href="/posts/a1a73a0d.html" title="Python.d14">Python.d14</a><time datetime="2024-12-22T13:16:23.000Z" title="发表于 2024-12-22 21:16:23">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e10d4c29.html" title="Blender.d1"><img src="https://www.loliapi.com/acg/pc/?8525" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender.d1"></a><div class="content"><a class="title" href="/posts/e10d4c29.html" title="Blender.d1">Blender.d1</a><time datetime="2024-12-16T09:39:56.000Z" title="发表于 2024-12-16 17:39:56">2024-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3fc3afae.html" title="Python.d13"><img src="https://www.loliapi.com/acg/pc/?9961" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d13"></a><div class="content"><a class="title" href="/posts/3fc3afae.html" title="Python.d13">Python.d13</a><time datetime="2024-12-12T05:11:33.000Z" title="发表于 2024-12-12 13:11:33">2024-12-12</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/"><span class="card-category-list-name">AI</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/SillyTavern/"><span class="card-category-list-name">SillyTavern</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/stable-diffulusion/"><span class="card-category-list-name">stable diffulusion</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Game/"><span class="card-category-list-name">Game</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/life/"><span class="card-category-list-name">life</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">12</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">12</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/"><span class="card-category-list-name">后端</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/blender/" style="font-size: 1.15em; color: rgb(108, 58, 59);">blender</a><a href="/tags/hexo/" style="font-size: 1.39em; color: rgb(140, 50, 125);">hexo</a><a href="/tags/butterfly/" style="font-size: 1.33em; color: rgb(62, 50, 175);">butterfly</a><a href="/tags/fluid/" style="font-size: 1.21em; color: rgb(50, 132, 117);">fluid</a><a href="/tags/android/" style="font-size: 1.21em; color: rgb(100, 152, 129);">android</a><a href="/tags/linux/" style="font-size: 1.27em; color: rgb(129, 115, 50);">linux</a><a href="/tags/mysql/" style="font-size: 1.21em; color: rgb(107, 121, 80);">mysql</a><a href="/tags/neovim/" style="font-size: 1.21em; color: rgb(95, 123, 89);">neovim</a><a href="/tags/python/" style="font-size: 1.45em; color: rgb(50, 157, 198);">python</a><a href="/tags/spark/" style="font-size: 1.15em; color: rgb(50, 144, 124);">spark</a><a href="/tags/ST/" style="font-size: 1.15em; color: rgb(167, 196, 142);">ST</a><a href="/tags/SD/" style="font-size: 1.15em; color: rgb(50, 129, 83);">SD</a><a href="/tags/sunshine/" style="font-size: 1.15em; color: rgb(159, 127, 83);">sunshine</a><a href="/tags/samba/" style="font-size: 1.15em; color: rgb(141, 50, 98);">samba</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/12/">
+          <span class="card-archive-list-date">十二月 2024</span>
+          <span class="card-archive-list-count">7</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">13</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/10/">
+          <span class="card-archive-list-date">十月 2024</span>
+          <span class="card-archive-list-count">19</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">39</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastpushdate="2025-01-15T16:05:14.592Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">©2024 - 2025 By rminit</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["欲买桂花同载酒，终不似，少年游","少年不得之物，终将困其一生","简单的人喜欢简单的事","欢迎来到rminit的小窝😄"])
+  } else {
+    document.getElementById("subtitle").textContent = "欲买桂花同载酒，终不似，少年游"
+  }
+}
+typedJSFn.run(subtitleType)</script></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>时间分块法 | rminit's blog</title><meta name="author" content="rminit"><meta name="copyright" content="rminit"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我们时常感觉自己的时间并不充足，我们是否会有这么一种感觉，就是我们大多的事情需要干，但是我们的时间太少了，总是把应该早点完成的事情拖很久 我们很多人应该都想追求生活和工作的完美平衡，但在众多任务的重压下保持高效和平衡并非易事。 时间分快法时间分块法不仅可以帮助你追踪并完成任务，还能显著增强我们的时间掌控感。它的主要好处：  帮助高效追踪并完成任务 帮助进行深度工作 高效完成浅层工作 追踪你的时间花">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时间分块法">
+<meta property="og:url" content="https://rminit.github.io/posts/49afcd1.html">
+<meta property="og:site_name" content="rminit's blog">
+<meta property="og:description" content="我们时常感觉自己的时间并不充足，我们是否会有这么一种感觉，就是我们大多的事情需要干，但是我们的时间太少了，总是把应该早点完成的事情拖很久 我们很多人应该都想追求生活和工作的完美平衡，但在众多任务的重压下保持高效和平衡并非易事。 时间分快法时间分块法不仅可以帮助你追踪并完成任务，还能显著增强我们的时间掌控感。它的主要好处：  帮助高效追踪并完成任务 帮助进行深度工作 高效完成浅层工作 追踪你的时间花">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.loliapi.com/acg/pc/?9157">
+<meta property="article:published_time" content="2024-11-22T10:02:37.000Z">
+<meta property="article:modified_time" content="2025-01-15T16:01:59.783Z">
+<meta property="article:author" content="rminit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.loliapi.com/acg/pc/?9157"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://rminit.github.io/posts/49afcd1.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '时间分块法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/top_img.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">rminit's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">时间分块法</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">时间分块法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-22T10:02:37.000Z" title="发表于 2024-11-22 18:02:37">2024-11-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-15T16:01:59.783Z" title="更新于 2025-01-16 00:01:59">2025-01-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/life/">life</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img" style="background-image: url(/img/top_img.jpg);"></div><article class="container post-content" id="article-container"><p>我们时常感觉自己的时间并不充足，我们是否会有这么一种感觉，就是我们大多的事情需要干，但是我们的时间太少了，总是把应该早点完成的事情拖很久</p>
+<p>我们很多人应该都想追求生活和工作的完美平衡，但在众多任务的重压下保持高效和平衡并非易事。</p>
+<h2 id="时间分快法"><a href="#时间分快法" class="headerlink" title="时间分快法"></a>时间分快法</h2><p>时间分块法不仅可以帮助你追踪并完成任务，还能显著增强我们的时间掌控感。它的主要好处：</p>
+<ul>
+<li>帮助高效追踪并完成任务</li>
+<li>帮助进行深度工作</li>
+<li>高效完成浅层工作</li>
+<li>追踪你的时间花费</li>
+<li>阻止你进行多任务处理</li>
+</ul>
+<h2 id="如何使用时间"><a href="#如何使用时间" class="headerlink" title="如何使用时间"></a>如何使用时间</h2><ol>
+<li>列出代办清单并明确优先事项<br>  首先，需要将日常工作、生活中的所有事项列成清单，并大致估算每项任务所需要的时间。</li>
+</ol>
+<p>  需要注意的是，要本着「要事第一」的原则，明确你的优先事项和目标，将优先事项与其他普通任务区分开来——可以使用艾森豪威尔矩阵来帮助你筛选出那些既不重要也不紧急的事项，花些时间深思那些对你而言最为重要的事物，例如：个人成长、照顾家庭等等。</p>
+<p>  找出对你而言最重要的 1～3 项关键任务，并围绕着这些优先事项优先进行时间分配，确保有足够的时间投入到最重要的事情上来。</p>
+<ol start="2">
+<li>为没项任务分配特定的时间段</li>
+</ol>
+<p>将一天划分为若干时间段——可以以 28 分钟为单位，也可以是以 1 小时为单位进行划分，并为每个时间段分配特定的任务或一组任务。</p>
+<p>  试着找出你一天中最具生产力的时间段，优先将关键任务安排在效率最高的时段。例如，我在早晨记忆力相对好一些，我就将每天新背     98个单词放在一天之始，优先处理它。若你是夜猫子型，深夜效率高，你当然可以将琐事安排在早上，将写作等重要的任务留在夜深人静的时候。</p>
+<ol start="3">
+<li>专注于每个区块分配的任务</li>
+</ol>
+<p>  在上一步中，我们已经为时间区块安排了特定任务。此时，你要做的就是在某个时间段保持对当前任务的专注。减少干扰，不要进行多任务处理，单任务处理才是更有效的工作方式。<br>  虽然在时间分块时没有明确标记出休息时间，采用番茄工作法或每 50 分钟专注刻意休息 10 分钟，聊聊天、散散步、喝喝咖啡等，来让大脑恢复能量。长时间不间断地进行专注工作而不休息，也是效率低下的。</p>
+<ol start="4">
+<li>根据需需要定期修改你的计划</li>
+</ol>
+<p>  有效的时间管理是一个持续的评估和调整过程，每日结束时，我们可以抽出几分钟对当日规划进行评估，确保你会意识到哪些方法行之有效？哪些任务所需要的时间超出你的预期？是否做了不必要的任务或活动？有没有任务可以取消或委派给他人？</p>
+<p>  通过不断的回顾和反思，你将更熟悉你的精力旺盛的时间段，也更了解每项任务的耗时，便可以更好地、更灵活地调整你的日程安排，你将能充分利用你的时间和精力。<br>  在上一步中，我们已经为时间区块安排了特定任务。此时，你要做的就是在某个时间段保持对当前任务的专注。减少干扰，不要进行多任务处理，单任务处理才是更有效的工作方式。<br>  虽然在时间分块时没有明确标记出休息时间，采用番茄工作法或每 50 分钟专注刻意休息 10 分钟，聊聊天、散散步、喝喝咖啡等，来让大脑恢复能量。长时间不间断地进行专注工作而不休息，也是效率低下的。</p>
+<div class="note warning modern"><p>时间分块并非遵循固定的分块模式，每个人都有自己独特的时间块管理方式，对别人有效的方法未必适合你。例如，上班族可能会在早晨安排一段不被打扰的时间段来完成重要的工作任务；而自由职业者可能会在晚上抽出时间来投入自己的兴趣项目中。你应该了解自己的规划和执行任务所需要的时间，而不是照着别人的葫芦去画瓢。</p>
+<p>正如 Getting Things Done 的着眼点是“完成”一样，应用时间分块法时应注重任务的执行而非规划。你应该只用少量时间来计划需要完成的事项并分配时间区块，然后将更多的时间用于完成它们。</p>
+</div>
+
+<h2 id="在Todoist中实现时间分块法"><a href="#在Todoist中实现时间分块法" class="headerlink" title="在Todoist中实现时间分块法"></a>在Todoist中实现时间分块法</h2><h3 id="在Todoist中收集并管理代办事项"><a href="#在Todoist中收集并管理代办事项" class="headerlink" title="在Todoist中收集并管理代办事项"></a>在Todoist中收集并管理代办事项</h3><p>新增待办事项时，只需要在每日笔记中写下任务描述，添加「任务」的超级标签即可创建一个任务，会自动添加截止日期、完成状态、优先级等属性，为管理任务增加了多个维度。<br><img src="/img/Screenshots/%E5%88%9B%E5%BB%BA%E4%BB%BB%E5%8A%A1.jpg" alt="创建任务"><br>在任务管理模块中对任务进行梳理，安排出今天的重要事项，重点围绕它们进行分配时间。<br><img src="/img/Screenshots/%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86.jpg" alt="任务管理"></p>
+<h3 id="在时间分块模块中安排任务"><a href="#在时间分块模块中安排任务" class="headerlink" title="在时间分块模块中安排任务"></a>在时间分块模块中安排任务</h3><p>Tana 的 Calendar 视图可以为任务快速安排时间。<br><img src="/img/Screenshots/%E6%97%B6%E9%97%B4%E5%88%86%E5%9D%97.jpg" alt="时间分块"><br>有两个小技巧：一是将每日固定活动（如背单词、通勤、运动、每日回顾等等）直接写入模板，就不需要每天在这个表格中重复创建和安排了；二是在表格的最上面增加了一个「今日任务」的搜索节点，可以在这个时间分块表中快速查看今天待完成的任务，展开之后如图：<br><img src="/img/Screenshots/%E5%BE%85%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1.jpg" alt="待完成任务"></p>
+<p>并不需要将所有时间块安排安排上。比如超过一个小时的任务，可以留出充足的时间，关键是脚踏实地，专注的完成每一个任务。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://rminit.github.io">rminit</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://rminit.github.io/posts/49afcd1.html">https://rminit.github.io/posts/49afcd1.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://rminit.github.io" target="_blank">rminit's blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://www.loliapi.com/acg/pc/?9157" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/ccb0b82a.html" title="穿搭浅知"><img class="cover" src="https://www.loliapi.com/acg/pc/?9460" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">穿搭浅知</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a><a class="pagination-related" href="/posts/67ccc273.html" title="SillyTavern.d1"><img class="cover" src="https://www.loliapi.com/acg/pc/?7130" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">SillyTavern.d1</div></div><div class="info-2"><div class="info-item-1">SillyTavernSillyTavern 是一个可以安装在电脑（和安卓手机）上的用户界面，让您可以与文本生成的人工智能互动，并与您或社区创建的角色聊天/玩角色扮演游戏。 扩展：  角色情绪识别 聊天记录自动摘要 在聊天窗口发送图片，并由人工智能解释图片内容 文本图像生成 聊天信息转语音  在linux下安装使用123git clone https://github.com/SillyTavern/SillyTavern -b releasecd SillyTavern./start.sh </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">rminit</div><div class="author-info-description">just for fun!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/rminit"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/rminit" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1606638705@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站，这里记录我的日常和学习笔记，希望对您有所帮助...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%88%86%E5%BF%AB%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">时间分快法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%97%B6%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">如何使用时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8Todoist%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%B6%E9%97%B4%E5%88%86%E5%9D%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">在Todoist中实现时间分块法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Todoist%E4%B8%AD%E6%94%B6%E9%9B%86%E5%B9%B6%E7%AE%A1%E7%90%86%E4%BB%A3%E5%8A%9E%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.1.</span> <span class="toc-text">在Todoist中收集并管理代办事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%97%B6%E9%97%B4%E5%88%86%E5%9D%97%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%AE%89%E6%8E%92%E4%BB%BB%E5%8A%A1"><span class="toc-number">3.2.</span> <span class="toc-text">在时间分块模块中安排任务</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/63af09b.html" title="Hexo的备份和恢复"><img src="https://www.loliapi.com/acg/pc/?9954" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo的备份和恢复"></a><div class="content"><a class="title" href="/posts/63af09b.html" title="Hexo的备份和恢复">Hexo的备份和恢复</a><time datetime="2024-12-27T17:26:34.000Z" title="发表于 2024-12-28 01:26:34">2024-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能"><img src="https://www.loliapi.com/acg/pc/?1553" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo添加本地搜索功能"></a><div class="content"><a class="title" href="/posts/a22d1046.html" title="Hexo添加本地搜索功能">Hexo添加本地搜索功能</a><time datetime="2024-12-25T06:19:24.000Z" title="发表于 2024-12-25 14:19:24">2024-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a1a73a0d.html" title="Python.d14"><img src="https://www.loliapi.com/acg/pc/?8514" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d14"></a><div class="content"><a class="title" href="/posts/a1a73a0d.html" title="Python.d14">Python.d14</a><time datetime="2024-12-22T13:16:23.000Z" title="发表于 2024-12-22 21:16:23">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e10d4c29.html" title="Blender.d1"><img src="https://www.loliapi.com/acg/pc/?8525" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender.d1"></a><div class="content"><a class="title" href="/posts/e10d4c29.html" title="Blender.d1">Blender.d1</a><time datetime="2024-12-16T09:39:56.000Z" title="发表于 2024-12-16 17:39:56">2024-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3fc3afae.html" title="Python.d13"><img src="https://www.loliapi.com/acg/pc/?9961" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python.d13"></a><div class="content"><a class="title" href="/posts/3fc3afae.html" title="Python.d13">Python.d13</a><time datetime="2024-12-12T05:11:33.000Z" title="发表于 2024-12-12 13:11:33">2024-12-12</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">©2024 - 2025 By rminit</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async="" data-pjax="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
